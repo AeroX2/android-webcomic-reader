@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+	<group android:checkableBehavior="single">
+		<item
+			android:id="@+id/add_button"
+			android:icon="@drawable/ic_add_circle_outline"
+			android:title="@string/string_add_comic"/>
+	</group>
+
+	<item
+		android:id="@+id/comic_menu"
+		android:title="@string/string_comics">
+		<menu>
+		</menu>
+	</item>
+
+</menu>

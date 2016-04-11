@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          xmlns:tools="http://schemas.android.com/tools"
+          package="com.jtdev.webcomicreader">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <application
+        android:name=".CustomApplication"
+        android:allowBackup="true"
+        android:backupAgent=".helpers.BackupAgent"
+		android:fullBackupOnly="true"
+		android:fullBackupContent="@xml/backupscheme"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        tools:ignore="UnusedAttribute">
+        <activity
+            android:name=".DeepLinkActivity"
+            android:label="@string/title_activity_comic"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="http"
+                      android:host="github.com/JT-Dev"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.jtdev.webcomicreader.MainActivity"
+            android:label="@string/app_name"
+			android:configChanges="orientation|screenSize"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ComicActivity"
+            android:label="@string/title_activity_comic"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+            android:name=".HelpActivity"
+            android:label="@string/title_activity_comic"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <receiver android:name=".utils.NetworkBroadcastReceiver" >
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+                <action android:name="android.net.wifi.WIFI_STATE_CHANGED" />
+            </intent-filter>
+        </receiver>
+        <meta-data android:name="com.google.android.backup.api_key" android:value="AEdPqrEAAAAIOqzUvCLBlx_Y68HcWqVZjS1o_iKBr5AZjThnMQ" />
+    </application>
+
+</manifest>
