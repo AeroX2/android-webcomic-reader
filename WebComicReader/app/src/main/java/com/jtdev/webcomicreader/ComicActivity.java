@@ -162,6 +162,12 @@ public class ComicActivity extends AppCompatActivity
 		findPrevious = "";
 	}
 
+	/**
+	 * Checks all fields (url, alias and method) of the Activity are filled in correctly 
+	 * Check url is not null and exists on the internet
+	 * Check alias is not empty and doesn't already exist in the database
+	 * @returns Object[]{url, alias, method} if all the fields are valid else null
+	 */
 	private Object[] checkFields()
 	{
 		URL url = null;
